@@ -11,8 +11,6 @@ const data = [
     { a: 'Water', b: 'Oil', result: false },
 ];
 
-console.table(results);
-
 data.forEach((item) => {
     describe(`When argument are ${item.a} and ${item.b}`, () => {
         test(`Then the result should be ${item.result}`, () => {
