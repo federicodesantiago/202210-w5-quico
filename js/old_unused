@@ -1,0 +1,27 @@
+//array.length
+
+/*function arrayLength(arr) {
+    let i = 0;
+    let b = arr;
+    let index = 0;
+
+    arr.forEach((element) => {
+        if (element === null) {
+            index = arr.indexOf(element);
+            b[index] = 'X';
+        }
+    });
+    arr.forEach((element) => {
+        if (element === undefined) {
+            index = arr.indexOf(element);
+            b[index] = 'X';
+        }
+    });
+    while (b[i]) {
+        i++;
+    }
+
+    return i;
+}
+
+export { arrayLength };*/
