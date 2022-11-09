@@ -19,14 +19,15 @@ function arrayPush(dataPush, pushElement) {
 //pop
 
 function arrayPop(arr) {
-    const dataPop = [];
-    let k = 0;
+    //const dataPop = [];
+    //let k = 0;
+    // while (k <= x - 2) {
+    //     arrayPush(dataPop, arr[k]);
+    //     k++;
+    //}
     let x = arrayLength(arr);
-    while (k <= x - 2) {
-        arrayPush(dataPop, arr[k]);
-        k++;
-    }
-    return dataPop;
+    let result = arr[x - 1];
+    return result;
 }
 
 export { arrayLength, arrayPush, arrayPop };
