@@ -23,7 +23,7 @@ const pushElement = [4, 5, undefined, null];
 pushElement.forEach((data) => {
     describe(`When argument are ${data}`, () => {
         const dataPush = [1, 2, 3];
-        test(`Then the result should be ${dataPush}`, () => {
+        test(`Then the result should be ${dataPush.length + 1}`, () => {
             const r = arrayPush(dataPush, data);
             expect(r).toBe(dataPush);
         });
@@ -33,8 +33,8 @@ pushElement.forEach((data) => {
 const popElement = [4, 5, 6, 7];
 
 describe(`When argument are ${popElement}`, () => {
-    test(`Then the result should be ${arrayPop(popElement)}`, () => {
+    test(`Then the result should be ${popElement.pop()}`, () => {
         const r = arrayPop(popElement);
-        expect(r).toBe(popElement);
+        expect(r).toBe(popElement.pop());
     });
 });
