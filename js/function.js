@@ -19,15 +19,24 @@ function arrayPush(dataPush, pushElement) {
 //pop
 
 function arrayPop(arr) {
-    //const dataPop = [];
-    //let k = 0;
-    // while (k <= x - 2) {
-    //     arrayPush(dataPop, arr[k]);
-    //     k++;
-    //}
+    const dataPop = [];
+    let k = 0;
     let x = arrayLength(arr);
-    let result = arr[x - 1];
-    return result;
+    while (k <= x - 2) {
+        arrayPush(dataPop, arr[k]);
+        k++;
+    }
+    return dataPop;
 }
 
-export { arrayLength, arrayPush, arrayPop };
+//unshift
+
+function arrayUnshift(arr, unshiftElement) {
+    for (let i = arrayLength(arr) - 1; i >= 0; i--) {
+        arr[i + 1] = arr[i];
+    }
+    arr[0] = unshiftElement;
+    return arr;
+}
+
+export { arrayLength, arrayPush, arrayPop, arrayUnshift };
