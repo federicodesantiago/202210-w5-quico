@@ -39,4 +39,14 @@ function arrayUnshift(arr, unshiftElement) {
     return arr;
 }
 
-export { arrayLength, arrayPush, arrayPop, arrayUnshift };
+//shift
+
+function arrayShift(arr) {
+    for (let i = 1; i <= arrayLength(arr); i++) {
+        arr[i - 1] = arr[i];
+    }
+    arrayPop(arr);
+    return arr;
+}
+
+export { arrayLength, arrayPush, arrayPop, arrayUnshift, arrayShift };

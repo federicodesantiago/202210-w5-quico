@@ -1,4 +1,10 @@
-import { arrayLength, arrayPush, arrayPop, arrayUnshift } from './function.js';
+import {
+    arrayLength,
+    arrayPush,
+    arrayPop,
+    arrayUnshift,
+    arrayShift,
+} from './function.js';
 
 //Testing array.length
 
@@ -65,5 +71,21 @@ describe(`When argument are the element: ${unshiftElement} and the array: ${data
     test(`Then the result should be ${arrayLength(dataUnshift)}`, () => {
         const r2 = arrayLength(dataUnshift);
         expect(r2).toBe(dataUnshift.length);
+    });
+});
+
+//Testing array.shift
+
+const dataShift = [1, 2, 3, 4];
+const dataShiftTest = [2, 3, 4];
+
+describe(`When argument is the array: ${dataShift}`, () => {
+    test(`Then the result should be ${dataShiftTest}`, () => {
+        const r = arrayShift(dataShift);
+        expect(r).toEqual(dataShiftTest);
+    });
+    test(`Then the result should be ${arrayLength(dataShift)}`, () => {
+        const r2 = arrayLength(dataShift);
+        expect(r2).toBe(dataShift.length);
     });
 });
