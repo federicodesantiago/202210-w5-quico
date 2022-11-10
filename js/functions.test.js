@@ -5,6 +5,7 @@ import {
     arrayUnshift,
     arrayShift,
     arraySome,
+    arrayEvery,
 } from './function.js';
 
 //Testing array.length
@@ -94,10 +95,10 @@ describe(`When argument is the array: ${dataShift}`, () => {
 //Testing array.some
 
 const dataSome = [1, 2, 3, 4, true, {}];
-let y;
+let k;
 function dataFunction(element) {
-    y = element * 5 === 1000;
-    return y;
+    k = element * 5 === 1000;
+    return k;
 }
 
 describe(`When argument is the array: ${dataSome} and the function is dataFunction`, () => {
@@ -117,5 +118,38 @@ describe(`When argument is the array: ${dataSome} and the function is dataFuncti
         }
         const r = checkSome(results);
         expect(r).toBe(dataSome.some(dataFunction));
+    });
+});
+
+//Testing array.every
+
+const dataEvery = [2, 5, 2, 2, 2, 2];
+let y;
+function dataFunctionEvery(element) {
+    y = element * 5 === 10;
+    return y;
+}
+
+describe(`When argument is the array: ${dataEvery} and the function is dataFunctionEvery`, () => {
+    test(`Then the result should be ${dataEvery.every(
+        dataFunctionEvery
+    )}`, () => {
+        let results = arrayEvery(dataSome, dataFunctionEvery);
+        let checkEveryResult;
+        function checkEvery(results) {
+            for (let i = 0; i <= arrayLength(results); i++) {
+                if (results[i]) {
+                    checkEveryResult = true;
+                }
+
+                if (!results[i]) {
+                    checkEveryResult = false;
+                    break;
+                }
+            }
+            return checkEveryResult;
+        }
+        const r = checkEvery(results);
+        expect(r).toBe(results.every(dataFunctionEvery));
     });
 });
