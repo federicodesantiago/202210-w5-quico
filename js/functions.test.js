@@ -6,6 +6,7 @@ import {
     arrayShift,
     arraySome,
     arrayEvery,
+    arrayFind,
 } from './function.js';
 
 //Testing array.length
@@ -123,7 +124,7 @@ describe(`When argument is the array: ${dataSome} and the function is dataFuncti
 
 //Testing array.every
 
-const dataEvery = [2, 5, 2, 2, 2, 2];
+const dataEvery = [2, 2, 5, 2, 2, 2];
 let y;
 function dataFunctionEvery(element) {
     y = element * 5 === 10;
@@ -134,22 +135,23 @@ describe(`When argument is the array: ${dataEvery} and the function is dataFunct
     test(`Then the result should be ${dataEvery.every(
         dataFunctionEvery
     )}`, () => {
-        let results = arrayEvery(dataSome, dataFunctionEvery);
-        let checkEveryResult;
-        function checkEvery(results) {
-            for (let i = 0; i <= arrayLength(results); i++) {
-                if (results[i]) {
-                    checkEveryResult = true;
-                }
+        const r = arrayEvery(dataEvery, dataFunctionEvery);
+        expect(r).toBe(dataEvery.every(dataFunctionEvery));
+    });
+});
 
-                if (!results[i]) {
-                    checkEveryResult = false;
-                    break;
-                }
-            }
-            return checkEveryResult;
-        }
-        const r = checkEvery(results);
-        expect(r).toBe(results.every(dataFunctionEvery));
+//Testing array.find
+
+const dataFind = [7, 6, 5, 2, 3, 1];
+let x;
+function dataFunctionFind(element) {
+    x = element * 5 === 10;
+    return x;
+}
+
+describe(`When argument is the array: ${dataFind} and the function is dataFunctionFind`, () => {
+    test(`Then the result should be ${dataFind.find(dataFunctionFind)}`, () => {
+        const r = arrayFind(dataFind, dataFunctionFind);
+        expect(r).toBe(dataFind.find(dataFunctionFind));
     });
 });

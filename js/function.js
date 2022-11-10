@@ -62,11 +62,38 @@ function arraySome(arr, dataFunction) {
 //every
 
 function arrayEvery(arr, dataFunctionEvery) {
+    let checkEveryResult;
     const arrayCont = [];
     arr.forEach((item) => {
         arrayCont.push(dataFunctionEvery(item));
     });
-    return arrayCont;
+    for (let i = 0; i <= arrayLength(arrayCont) - 1; i++) {
+        if (arrayCont[i]) {
+            checkEveryResult = true;
+        }
+        if (!arrayCont[i]) {
+            checkEveryResult = false;
+            break;
+        }
+    }
+    return checkEveryResult;
+}
+
+//find
+
+function arrayFind(arr, dataFunctionFind) {
+    let checkFindResult;
+
+    for (let i = 0; i <= arrayLength(arr) - 1; i++) {
+        if (!dataFunctionFind(arr[i])) {
+            checkFindResult = undefined;
+        }
+        if (dataFunctionFind(arr[i])) {
+            checkFindResult = arr[i];
+            break;
+        }
+    }
+    return checkFindResult;
 }
 
 export {
@@ -77,4 +104,5 @@ export {
     arrayShift,
     arraySome,
     arrayEvery,
+    arrayFind,
 };
