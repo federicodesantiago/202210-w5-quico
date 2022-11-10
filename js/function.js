@@ -59,6 +59,16 @@ function arraySome(arr, dataFunction) {
     return arrayCont;
 }
 
+//every
+
+function arrayEvery(arr, dataFunctionEvery) {
+    const arrayCont = [];
+    arr.forEach((item) => {
+        arrayCont.push(dataFunctionEvery(item));
+    });
+    return arrayCont;
+}
+
 export {
     arrayLength,
     arrayPush,
@@ -66,4 +76,5 @@ export {
     arrayUnshift,
     arrayShift,
     arraySome,
+    arrayEvery,
 };
