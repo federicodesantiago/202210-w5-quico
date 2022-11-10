@@ -49,4 +49,21 @@ function arrayShift(arr) {
     return arr;
 }
 
-export { arrayLength, arrayPush, arrayPop, arrayUnshift, arrayShift };
+//some
+
+function arraySome(arr, dataFunction) {
+    const arrayCont = [];
+    arr.forEach((item) => {
+        arrayCont.push(dataFunction(item));
+    });
+    return arrayCont;
+}
+
+export {
+    arrayLength,
+    arrayPush,
+    arrayPop,
+    arrayUnshift,
+    arrayShift,
+    arraySome,
+};

@@ -4,6 +4,7 @@ import {
     arrayPop,
     arrayUnshift,
     arrayShift,
+    arraySome,
 } from './function.js';
 
 //Testing array.length
@@ -87,5 +88,34 @@ describe(`When argument is the array: ${dataShift}`, () => {
     test(`Then the result should be ${arrayLength(dataShift)}`, () => {
         const r2 = arrayLength(dataShift);
         expect(r2).toBe(dataShift.length);
+    });
+});
+
+//Testing array.some
+
+const dataSome = [1, 2, 3, 4, true, {}];
+let y;
+function dataFunction(element) {
+    y = element * 5 === 1000;
+    return y;
+}
+
+describe(`When argument is the array: ${dataSome} and the function is dataFunction`, () => {
+    test(`Then the result should be ${dataSome.some(dataFunction)}`, () => {
+        let results = arraySome(dataSome, dataFunction);
+        let checkSomeResult;
+        function checkSome(results) {
+            results.forEach((item) => {
+                if (item) {
+                    checkSomeResult = true;
+                }
+                if (!item) {
+                    checkSomeResult = false;
+                }
+            });
+            return checkSomeResult;
+        }
+        const r = checkSome(results);
+        expect(r).toBe(dataSome.some(dataFunction));
     });
 });
